@@ -1,0 +1,257 @@
+a {
+    color: black;
+}
+
+.view-port {
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 200;
+    background-color: rgba(0,0,0,0.5); 
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}
+
+/*                Navigation Bar                */
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 80;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.63);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.nav-bar {
+    /* background: red; */
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    
+    /* background: brown; */
+}
+
+
+.nav-logo {
+    margin: 0 10px;
+}
+
+.nav-logo > i:hover {
+    transform: scale(1.2);
+}
+
+.nav-logo > .fa-sign-in {
+    position: relative;
+}
+
+.nav-logo > .fa-sign-out {
+    position: relative;
+    display: none;
+}
+
+.sign-in-text, .sign-out-text{
+    position: absolute;
+    font-size: 0.7em;
+    transform: translateX(-3px);
+}
+
+.sign-out-text {
+    display: none;
+    transform: translateX(-10px); 
+}
+
+.nav-logo > .fa-shopping-cart {
+    position: relative;
+}
+
+.shop-text {
+    position: absolute;
+    font-size: 0.7em;
+    transform: translateX(-8px);
+    /* padding-right: 1em; */
+}
+
+.search-text {
+    position: absolute;
+    font-size: 0.7em;
+    transform: translateX(1.5px); 
+    display: none;
+}
+
+.nav-logo .fa, .search .fa {
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    font-size: 2.0em;
+}
+
+.nav-logo .fa-search, .nav-logo .fa-close  {
+    display: none;
+}   
+
+
+/* .nav-logo:nth-child(7) {
+    margin-left: auto;
+
+} */
+
+/*               Mobile Search Bar                */
+.mobile-search {
+    cursor: pointer;
+}
+
+.mobile-search-term {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+
+.mobile-search-container {
+    width: 100%; 
+    margin: 15px auto;
+    text-align: center;
+    display: none;
+}
+
+
+/*  Search bar  */
+.search {
+  display: flex;
+  justify-content: center;
+  /* background: green; */
+  width: 80%;
+  margin: auto;
+    
+}
+
+.searchTerm {
+    outline: none;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid grey;
+    letter-spacing: 1.5px;
+    text-align: center;
+    width: 80%;
+    transition: width 1s ease-in-out;
+    font-size: 1.3em;
+    padding: 0.5em;
+    background: #ffffff;
+    box-shadow:  10px 10px 10px #c2c2c2,
+             -10px -10px 10px #ffffff;
+
+}
+
+.searchTerm:hover {
+    box-shadow: none;
+}
+
+.searchButton {
+    outline: none;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid grey;
+    background-color: white;
+    padding: 0 10px;
+}
+
+.searchButton:hover {
+    background: #f9f9f9;
+}
+
+
+
+/*   Nav Elem Container       */
+
+.nav-elem-container {
+    width: 100%;
+    z-index: 79;
+    border-radius: 0 0 15px 15px;
+    margin-top: 6.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.63);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    
+}
+
+
+.nav-elem-bar {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content:space-evenly;
+    width: 100%;
+    padding: 10px;
+}
+
+
+.nav-elem {
+    /*width: var(--s-gap);*/
+    border-radius: 92px;
+    /* background: #f2f2f2; */
+
+    padding: 15px;
+    cursor: pointer;
+}
+
+.nav-elem:hover {
+    box-shadow:  10px 10px 10px #c2c2c2,
+             -10px -10px 10px #f9f9f9;
+    /* box-shadow: none;     */
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #8860D0;
+}
+
+
+
+/*          logo        */
+.ham-menu {
+    width: 100%;
+    text-align: center;
+}
+
+.fa-bars:hover {
+    transform: rotate(360deg);
+}
+
+
+
+/* Search responsive */
+@media only screen and (max-width: 800px) {
+    .nav-logo .fa-search {
+        display: block;
+    }
+    .search{
+        display: none;
+    }
+
+    .search-text {
+        display: block;
+    }
+}
+
+
+/* Nav Responsive Screen */
+@media only screen and (max-width: 1100px) {
+    .nav-elem-container {
+        display: none;
+    }
+}

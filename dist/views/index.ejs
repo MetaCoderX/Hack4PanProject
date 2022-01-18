@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home Page</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/swiper.css">
+
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/topStyle.css">
+        <link rel="stylesheet" href="css/bottomStyle.css">
+        <link rel="stylesheet" href="css/side.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+        <script src="js/action.js" defer></script>
+        <script src="js/top.js" defer></script>
+        <script src="js/login.js" defer></script>
+        <script src="js/side.js" defer></script>
+
+    </head>
+
+    <body>
+        <div id="viewport-wrapper">
+
+            <%- include('top.ejs') %>
+            <%- include('side.ejs') %>
+            <%- include('login.ejs') %>
+
+            <!--Main Content-->
+            <div class="swiper mySwiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slideshow2">
+                            <div class="home-content2">
+
+                                <h1>Best Selling Shoes</h1>
+                                <p>Follow the trend in 2021</p>
+                                <a href="" class="offer-btn">Shop Now</a>
+                            </div>
+                            <div class="home-content2-visuals">
+                                <img src="resources/adidas_shoes.png" class="home-content2-picture" alt="adidas_shoes">
+                                <img src="resources/adidas_shoes.png" class="home-content2-picture" alt="adidas_shoes">
+                                <img src="resources/adidas_shoes.png" class="home-content2-picture" alt="adidas_shoes">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slideshow">
+                            <div class="home-content1">
+                                <div class="home1-description">
+                                    <h1>Best Selling Shoes</h1>
+                                    <p>Follow the trend in 2021</p>
+                                    <a href="" class="offer-btn">Shop Now</a>
+                                </div>
+                            </div>
+                            <div class="home-content1">
+                                <img src="resources/adidas_shoes.png" class="slides" alt="adidas_shoes">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slideshow3">
+                            <div class="home-content3-visuals">
+                                <img src="resources/adidas_shoes.png" class="home-content3-picture" alt="adidas_shoes">
+                                <img src="resources/adidas_shoes.png" class="home-content3-picture" alt="adidas_shoes">
+                                <img src="resources/adidas_shoes.png" class="home-content3-picture" alt="adidas_shoes">
+                                <img src="resources/adidas_shoes.png" class="home-content3-picture" alt="adidas_shoes">
+                            </div>
+                            <div class="home-content3">
+                                <div class="home3-description">
+                                    <h1>Best Selling Shoes</h1>
+                                    <p>Discover these new items in 2022.</p>
+                                    <a href="" class="home3-btn">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slideshow4">
+                            <div class="home-content1">
+                                <img src="resources/adidas_shoes.png" class="slides" alt="adidas_shoes">
+                            </div>
+                            <div class="home-content1">
+                                <div class="home3-description">
+                                    <h1>Best Selling Shoes</h1>
+                                    <p>Discover these new items in 2022.</p>
+                                    <a href="" class="home3-btn">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next swiper-button-next1"></div>
+                <div class="swiper-button-prev swiper-button-prev1"></div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+              </div>
+
+
+            <!-- Categories
+            <div class="category-container">
+                <div class="category-content">
+                    <h2 class="best-sellers"> Best Sellers </h2>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="col-4-header">
+                                <div class="favourite">
+                                    <i class="fa fa-heart-o"></i>
+                                    <i class="fa fa-heart"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-item-container">
+                                <div class="best-overlay">
+                                    <img src="https://magicbeauty.e-sales.app/uploader/files/product_images/bf458f17-59c5-4581-ae5a-d43059c19cc1.jpeg" class="best-overlay-image" alt="adidas_shoes">
+                                    <div class="best-overlay-icons" id="overlay-icons1">
+                                        <i class="fa fa-shopping-cart best-overlay-cart"></i>
+                                        <div class="best-quantity">
+                                            <i class="fa fa-minus-square best-minus-square"></i>
+                                            <div class="best-product-counter">1</div>
+                                            <i class="fa fa-plus-square best-plus-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-content">
+                                    <div class="product-name">Product name</div>
+                                    <div class="product-price">$100</div>
+                                    <button class="preview-btn">Preview</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="col-4-header">
+                                <div class="favourite">
+                                    <i class="fa fa-heart-o"></i>
+                                    <i class="fa fa-heart"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-item-container">
+                                <div class="best-overlay">
+                                    <img src="../resources/adidas_shoes.png" class="best-overlay-image" alt="adidas_shoes">
+                                    <div class="best-overlay-icons" id="overlay-icons1">
+                                        <i class="fa fa-shopping-cart best-overlay-cart"></i>
+                                        <div class="best-quantity">
+                                            <i class="fa fa-minus-square best-minus-square"></i>
+                                            <div class="best-product-counter">1</div>
+                                            <i class="fa fa-plus-square best-plus-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-content">
+                                    <div class="product-name">Product name</div>
+                                    <div class="product-price">$100</div>
+                                    <button class="preview-btn">Preview</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="col-4-header">
+                                <div class="favourite">
+                                    <i class="fa fa-heart-o"></i>
+                                    <i class="fa fa-heart"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-item-container">
+                                <div class="best-overlay">
+                                    <img src="https://magicbeauty.e-sales.app/uploader/files/product_images/bf458f17-59c5-4581-ae5a-d43059c19cc1.jpeg" class="best-overlay-image" alt="adidas_shoes">
+                                    <div class="best-overlay-icons" id="overlay-icons1">
+                                        <i class="fa fa-shopping-cart best-overlay-cart"></i>
+                                        <div class="best-quantity">
+                                            <i class="fa fa-minus-square best-minus-square"></i>
+                                            <div class="best-product-counter">1</div>
+                                            <i class="fa fa-plus-square best-plus-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-content">
+                                    <div class="product-name">Product name</div>
+                                    <div class="product-price">$100</div>
+                                    <button class="preview-btn">Preview</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="col-4-header">
+                                <div class="favourite">
+                                    <i class="fa fa-heart-o"></i>
+                                    <i class="fa fa-heart"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="product-item-container">
+                                <div class="best-overlay">
+                                    <img src="https://magicbeauty.e-sales.app/uploader/files/product_images/bf458f17-59c5-4581-ae5a-d43059c19cc1.jpeg" class="best-overlay-image" alt="adidas_shoes">
+                                    <div class="best-overlay-icons" id="overlay-icons1">
+                                        <i class="fa fa-shopping-cart best-overlay-cart"></i>
+                                        <div class="best-quantity">
+                                            <i class="fa fa-minus-square best-minus-square"></i>
+                                            <div class="best-product-counter">1</div>
+                                            <i class="fa fa-plus-square best-plus-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-content">
+                                    <div class="product-name">Product name</div>
+                                    <div class="product-price">$100</div>
+                                    <button class="preview-btn">Preview</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="category-container">
+                <div class="category-content">
+                    <h2 class = "featured-products"> Best Sellers </h2>
+                    <div class="row">
+                        <% for (let i = 0; i < 4; i ++) { %>
+                            <div class="product-id data-product-id" style="display:none"><%= data.bestSellers[i].id %></div>
+                            <div class="col-4">
+                                <div class="col-4-header">
+                                    <div class="col-4-header-heart">
+                                        <i class="fa fa-heart-o"></i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="product-item-container">
+                                    <img src="<%= data.bestSellers[i].imagesource %>" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')" class="featured-overlay-image data-item-image data-preview-btn" alt="adidas_shoes">
+                                    <div class="product-content">
+                                        <% for (let j = 0; j < data.bestSellers[i].rating; j++) { %>
+                                            <i class="fa fa-star"></i>
+                                        <% } %>
+
+                                        <% if (data.bestSellers[i].rating !== parseInt(data.bestSellers[i].rating)) { %>
+                                            <i class="fa fa-star-half-o"></i>
+                                        <% } %>
+
+                                        <% for (let j = 0; j < (5 - data.bestSellers[i].rating); j++) { %>
+                                            <i class="fa fa-star-o"></i>
+                                        <% } %>
+
+                                        <div class="product-item-details">
+                                            <div class="left-hand">
+                                                <div class="product-name data-item-name"> <%= data.bestSellers[i].name %> </div>
+                                                <div class="product-price data-item-price">$<%= data.bestSellers[i].price %> </div>
+                                            </div>
+                                            <div class="featured-overlay-cart-container">
+                                                <i class="fa fa-shopping-cart featured-overlay-cart" onclick="pressShoppingCart('<%= data.bestSellers[i].id %>', '<%= data.bestSellers[i].name %>', '<%= data.bestSellers[i].price %>', '<%= data.bestSellers[i].imagesource %>')"></i>
+                                            </div>
+                                            <div class="featured-quantity">
+                                                <i class="fa fa-minus-square featured-minus-square"></i>
+                                                <div class="featured-product-counter">0</div>
+                                                <i class="fa fa-plus-square featured-plus-square"></i>
+                                            </div>
+                                        </div>
+                                        <button class="preview-item-btn" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')">Preview Item</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <div class="category-content">
+                    <h2 class = "featured-products"> Top Rated </h2>
+                    <div class="row">
+                        <% for (let i = 0; i < 4; i ++) { %>
+                            <div class="product-id data-product-id" style="display:none"><%= data.topRated[i].id %></div>
+                            <div class="col-4 data-preview-btn col-4-alt">
+                                <div class="col-4-header">
+                                    <div class="col-4-header-heart">
+                                        <i class="fa fa-heart-o"></i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="product-item-container">
+                                    <img src="<%= data.bestSellers[i].imagesource %>" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')" class="featured-overlay-image data-item-image data-preview-btn" alt="adidas_shoes">
+                                    <div class="product-content">
+                                        <% for (let j = 0; j < data.topRated[i].rating; j++) { %>
+                                            <i class="fa fa-star"></i>
+                                        <% } %>
+
+                                        <% if (data.topRated[i].rating !== parseInt(data.topRated[i].rating)) { %>
+                                            <i class="fa fa-star-half-o"></i>
+                                        <% } %>
+
+                                        <% for (let j = 0; j < (5 - data.topRated[i].rating); j++) { %>
+                                            <i class="fa fa-star-o"></i>
+                                        <% } %>
+
+                                        <div class="product-item-details">
+                                            <div class="left-hand">
+                                                <div class="product-name data-item-name"> <%= data.topRated[i].name %> </div>
+                                                <div class="product-price data-item-price">$<%= data.topRated[i].price %> </div>
+                                            </div>
+                                            <div class="featured-overlay-cart-container">
+                                                <i class="fa fa-shopping-cart featured-overlay-cart" onclick="pressShoppingCart('<%= data.topRated[i].id %>', '<%= data.topRated[i].name %>', '<%= data.topRated[i].price %>', '<%= data.topRated[i].imagesource %>')"></i>
+                                            </div>
+                                            <div class="featured-quantity">
+                                                <i class="fa fa-minus-square featured-minus-square"></i>
+                                                <div class="featured-product-counter">0</div>
+                                                <i class="fa fa-plus-square featured-plus-square"></i>
+                                            </div>
+                                        </div>
+                                        <button class="preview-item-btn" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')">Preview Item</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="category-container">
+                <div class="category-content">
+                    <h2 class = "featured-products"> Top Deals </h2>
+                    <div class="row">
+                        <% for (let i = 0; i < 4; i ++) { %>
+                            <div class="product-id data-product-id" style="display:none"><%= data.topDeals[i].id %></div>
+                            <div class="col-4 data-preview-btn">
+                                <span class="deals-discount">
+                                    <i class="deals-symbol">$</i>
+                                    <i class="deals-amount data-item-price">
+                                        <%= data.topDeals[i].price %>
+                                    </i>
+                                </span>
+                                <div class="col-4-header">
+                                    <div class="col-4-header-heart">
+                                        <i class="fa fa-heart-o"></i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                </div>
+                                <div class="product-item-container">
+                                    <img src="<%= data.bestSellers[i].imagesource %>" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')" class="featured-overlay-image data-item-image data-preview-btn" alt="adidas_shoes">
+                                    <div class="product-content">
+                                        <% for (let j = 0; j < data.topDeals[i].rating; j++) { %>
+                                            <i class="fa fa-star"></i>
+                                        <% } %>
+
+                                        <% if (data.topDeals[i].rating !== parseInt(data.topDeals[i].rating)) { %>
+                                            <i class="fa fa-star-half-o"></i>
+                                        <% } %>
+
+                                        <% for (let j = 0; j < (5 - data.topDeals[i].rating); j++) { %>
+                                            <i class="fa fa-star-o"></i>
+                                        <% } %>
+
+                                        <div class="product-item-details">
+                                            <div class="left-hand">
+                                                <div class="product-name data-item-name"> <%= data.topDeals[i].name %> </div>
+                                                <div class="product-price data-item-price discount-price">$<%= data.topDeals[i].price %> </div>
+                                            </div>
+                                            <div class="featured-overlay-cart-container">
+                                                <i class="fa fa-shopping-cart featured-overlay-cart" onclick="pressShoppingCart('<%= data.topRated[i].id %>', '<%= data.topRated[i].name %>', '<%= data.topRated[i].price %>', '<%= data.topRated[i].imagesource %>')"></i>
+                                            </div>
+                                            <div class="featured-quantity">
+                                                <i class="fa fa-minus-square featured-minus-square"></i>
+                                                <div class="featured-product-counter">0</div>
+                                                <i class="fa fa-plus-square featured-plus-square"></i>
+                                            </div>
+                                        </div>
+                                        <button class="preview-item-btn" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')">Preview Item</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Product Slider-->
+            <div class="product-swiper"> </div>
+            <div class="swiper-container">
+                <h2 class="featured-products new-products">New Products</h2>
+                <div id="" class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+
+                        <% for (let i = 0; i < data.newProducts.length; i ++) { %>
+                            <div class="swiper-slide data-preview-btn">
+                                <div class="slider-box">
+                                    <div class="product-container">
+                                        <img src="<%= data.newProducts[i].imagesource %>" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')" class="data-item-image data-preview-btn" alt="adidas_shoes">
+                                    </div>
+
+                                    <div class="product-details">
+
+                                        <% for (let j = 0; j < data.newProducts[i].rating; j++) { %>
+                                            <i class="fa fa-star"></i>
+                                        <% } %>
+
+                                        <% if (data.newProducts[i].rating !== parseInt(data.newProducts[i].rating)) { %>
+                                            <i class="fa fa-star-half-o"></i>
+                                        <% } %>
+
+                                        <% for (let j = 0; j < (5 - data.newProducts[i].rating); j++) { %>
+                                            <i class="fa fa-star-o"></i>
+                                        <% } %>
+
+                                        <h4 class="data-item-name"> <%= data.newProducts[i].name %> </h4>
+                                        <p class="data-item-price"> $<%= data.newProducts[i].price %> </p>
+                                    </div>
+                                    <div class="product-function-container">
+                                        <div class="product-function">
+                                            <button class="preview-item-btn data-preview-btn"> Preview </button>
+                                            <div class="product-id" style="display:none" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')"><%= data.newProducts[i].id %></div>
+                                        </div>
+                                        <div class="product-function">
+                                            <button class="add-item-btn" onclick="pressShoppingCart('<%= data.newProducts[i].id %>', '<%= data.newProducts[i].name %>', '<%= data.newProducts[i].price %>', '<%= data.newProducts[i].imagesource %>')">Add Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% } %>
+
+                    </div>
+                    <div class="swiper-button-next swiper-button-next2"></div>
+                    <div class="swiper-button-prev swiper-button-prev2"></div>
+                    <!-- <div class="swiper-pagination swiper-pagination2"></div> -->
+                </div>
+
+                <!--    Mobile version  -->
+                <div id="" class="swiper mySwiper3">
+                    <div class="swiper-wrapper">
+                        <% for (let i = 0; i < data.newProducts.length; i ++) { %>
+                            <div class="swiper-slide">
+                                <div class="slider-box">
+                                    <div class="product-container">
+                                        <img src="<%= data.newProducts[i].imagesource %>" class="data-item-image" alt="adidas_shoes" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')">
+                                    </div>
+
+                                    <div class="product-details">
+
+                                        <% for (let j = 0; j < data.newProducts[i].rating; j++) { %>
+                                            <i class="fa fa-star"></i>
+                                        <% } %>
+
+                                        <% if (data.newProducts[i].rating !== parseInt(data.newProducts[i].rating)) { %>
+                                            <i class="fa fa-star-half-o"></i>
+                                        <% } %>
+
+                                        <% for (let j = 0; j < (5 - data.newProducts[i].rating); j++) { %>
+                                            <i class="fa fa-star-o"></i>
+                                        <% } %>
+
+                                        <h4 class="data-item-name"> <%= data.newProducts[i].name %> </h4>
+                                        <p class="data-item-price"> $<%= data.newProducts[i].price %> </p>
+                                    </div>
+                                    <div class="product-function-container">
+                                        <div class="product-function">
+                                            <button class="preview-item-btn data-preview-btn">Preview</button>
+                                            <div class="product-id" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')" style="display:none"><%= data.newProducts[i].id %></div>
+                                        </div>
+                                        <div class="product-function">
+                                            <button class="add-item-btn" onclick="pressShoppingCart('<%= data.newProducts[i].id %>', '<%= data.newProducts[i].name %>', '<%= data.newProducts[i].price %>', '<%= data.newProducts[i].imagesource %>')">Add Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% } %>
+                    </div>
+                    <div class="swiper-button-next swiper-button-next3"></div>
+                    <div class="swiper-button-prev swiper-button-prev3"></div>
+                    <%# <div class="swiper-pagination swiper-pagination3"></div> %>
+
+                </div>
+            </div>
+    
+            <%- include('bottom'); -%>
+        </div>
+    </body>
+</html>

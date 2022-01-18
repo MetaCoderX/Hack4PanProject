@@ -1,0 +1,61 @@
+
+<div class="view-port"></div>
+
+
+<div class="nav-container">
+    <ul class="nav-bar">
+        <!-- <li class="nav-logo">
+            <i class="fa fa-archive" id="saved-collection" onclick="openSavedList()"></i>
+            <%- include('saved.ejs') %>
+        </li> -->
+        <li class="nav-logo">
+            <i class="fa fa-sign-in" ></i>
+            <p class="sign-in-text">Sign in</p>
+            <i class="fa fa-sign-out" ></i>
+            <p class="sign-out-text">Sign out</p>
+        </li>
+
+        <li class="nav-logo">
+            <i class="fa fa-shopping-cart" onclick="openShopList()"></i>
+            <p class="shop-text">Shop Cart</p>
+        </li>
+        
+        <li class="nav-logo">
+            <i class="fa fa-search mobile-search" onclick="dropDownSearch()"></i>
+            <p class="search-text">Search</p>
+        </li>
+        
+        <li class="nav-logo">
+            <i class="fa fa-close close-search" onclick="closeDropDownSearch()"></i>
+        </li>
+
+        <div class="search">
+        <input type="text" class="searchTerm" placeholder="What item are you looking for?">
+        <button class="searchButton"><i class="fa fa-search"></i></button>
+        </div>
+
+        <li class="nav-logo">
+            <!--<a href="#" class="nav-link">Login</a>-->
+            <a href="javascript:void(0)" class="ham-menu" onclick="openNarrowMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="mobile-search-container">
+        <input type="text" class="mobile-search-term" placeholder="What item are you looking for?">
+    </div>
+</div>
+
+<!--Top Second Nav Bar-->
+<div class="nav-elem-container">
+    <ul class="nav-elem-bar">
+        <li class="nav-elem"><a href="/" class="nav-link">Home </a></li>
+        <li class="nav-elem"><a href="/health" class="nav-link">Health & Wellness </a></li>
+        <li class="nav-elem"><a href="/supplies" class="nav-link">School Supplies</a></li>
+        <li class="nav-elem"><a href="/sporting" class="nav-link">Sporting Goods</a></li>
+        <li class="nav-elem"><a href="/electronic" class="nav-link">Electronics</a></li>
+        <li class="nav-elem"><a href="/clothing" class="nav-link">Clothings</a></li>
+        <li class="nav-elem"><a href="/beauty" class="nav-link">Beauty</a></li>
+    </ul>
+
+</div>
