@@ -1,13 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
 html, body{
     width: 100%;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     background-color: rgba(246, 246, 246, 0.075);
-    overflow-x: hidden;
+    overflow:hidden;
+    position:fixed;
+    top:0;
+    bottom: 0;
 }
 
 #viewport-wrapper {
     width: 100%;
-    position: relative;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow-x: hidden;
 }
 
@@ -16,12 +31,7 @@ a {
 }
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
+
 
 /* Header tags */
 .featured-products {
@@ -541,6 +551,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    color: black;
 
     box-shadow:  1px 1px 5px #c2c2c2,
     -1px -1px 5px #f9f9f9;
@@ -819,12 +830,15 @@ padding: 50px;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
+
+
 }
 
 .testimonial-wrapper {
     margin: 15px;
     display: flex;
     gap: 50px;
+
 }
 
 .testimonial-header {
@@ -840,7 +854,6 @@ padding: 50px;
     background-color: rgba(255, 255, 255, 0.8);
     position: relative;
     padding: 30px;
-    backdrop-filter: blur(10px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     transform: scale(0.8);
@@ -922,8 +935,9 @@ padding: 50px;
     max-width: 2000px;
     width: 100%;
     text-align: center;
-    /* display: none; */
+    display: none;
     margin: 0 auto;
+
 }
 
 .review-content {
@@ -934,6 +948,7 @@ padding: 50px;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(66, 65, 65, 0.2);
     animation: down-top-animation 0.6s ease-in-out;
+
 }
 
 
@@ -973,6 +988,8 @@ padding: 50px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     outline: none;
     margin-top: 1em;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .submit-review {
@@ -982,6 +999,9 @@ padding: 50px;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 15px;
+    color:black;
+    background-color: rgba(215, 211, 211, 0.3);
+    border: 1px solid black;
 }
 
 @keyframes round-animation {

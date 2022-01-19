@@ -1,7 +1,4 @@
 #main-side-narrow {
-    /* backdrop-filter: blur(25px) saturate(200%); */
-    /* -webkit-backdrop-filter: blur(25px) saturate(200%); */
-    /* background-color: rgba(244, 244, 244, 0.63); */
     position: fixed;
     top: 0;
     right: 0;
@@ -9,9 +6,10 @@
     z-index: -1;
     width: 10%;
     max-width: 80px;
-    min-width: 80px;   
+    min-width: 80px;
     visibility: hidden;
     background: rgba(234, 233, 235, 0.1);
+    overflow: scroll;
 }
 
 .main-side-narrow-content {
@@ -83,11 +81,10 @@
     height: 100vh;
     min-width: 250px;
     max-width: 400px;
-    margin: 0;
-    padding: 0;
     display: none;
     animation: push-right-side 0.5s linear;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 @keyframes push-right-side {
@@ -171,7 +168,7 @@
     -webkit-backdrop-filter: blur(100px) saturate(200%); */
 
     box-shadow:  1px 1px 3px #c9c9c9,
-                 -1px -1px 3px #c9c9c9; 
+                 -1px -1px 3px #c9c9c9;
 }
 
 .sign-out-container > a {
@@ -203,7 +200,7 @@
     -webkit-backdrop-filter: blur(100px) saturate(200%); */
 
     box-shadow:  1px 1px 3px #c9c9c9,
-                 -1px -1px 3px #c9c9c9; 
+                 -1px -1px 3px #c9c9c9;
 }
 
 
@@ -222,5 +219,3 @@
     /* background: black; */
     margin-right: 0.5em;
 }
-
-
