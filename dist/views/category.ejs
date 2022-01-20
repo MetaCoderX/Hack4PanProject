@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clothings Section</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        
+        <link rel="stylesheet" href="css/topStyle.css">
+        <link rel="stylesheet" href="css/bottomStyle.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/category.css">
+        <link rel="stylesheet" href="css/side.css">
+        <link rel="stylesheet" href="css/shopping_list.css">
+        <link rel="stylesheet" href="css/saved.css">
+        <link rel="stylesheet" href="css/please_login.css">
+
+        <script src="js/product.js" defer></script>
+        <script src="js/top.js" defer></script>
+        <script src="js/login.js" defer></script>
+        <script src="js/side.js" defer></script>
+        <script src="js/shopping_list.js" defer></script>
+        <script src="js/saved.js" defer></script>
+        <script src="js/please_login.js" defer></script>
+
+    </head>
+
+<body>
+    <div id="viewport-wrapper">
+
+        <%- include('top'); -%> 
+        <%- include('side.ejs'); -%> 
+        <%- include('shopping_list.ejs') %>
+        <%- include('saved.ejs') %>
+        <%- include('login'); -%> 
+        <%- include('please_login.ejs') %>
+
+        <div id="page-name" style="display:none"><%= data.page_name %></div>
+        <div class="clothings-header">
+            <h2><%= data.page_name %> Products(<span><%= data.rows[Math.min(data.count, data.results) - 1].id %></span>)</h2>
+            <div class="num-of-results">
+                <i class="fa fa-sliders"></i>
+                <p>Displaying 1-<span><%= Math.min(data.count, data.results) %></span> of <%= data.results %> results</p>
+            </div>
+        </div>
+
+        <div class="clothings-wrapper">
+            <div class="clothings-filter-container">
+                <div class="clothings-filter-options">
+                    <div class="search-products">
+                        <i class='bx bx-x' onclick="closeFilterPanel()"></i>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search Products here">
+                            <i class='bx bx-search-alt-2'></i>
+                        </div>
+                    </div>
+                    <div class="sorting">
+                        <p>Sort by </p>
+                        <select name="clothings-options" id="clothings-options">
+                            <option value="Low Price">Low Price</option>
+                            <option value="High Price">High Price</option>
+                            <option value="Most Recent">Most Recent</option>
+                            <option value="Oldest">Oldest</option>
+                        </select>
+                    </div>
+
+                    <div class="price">
+                        <p>Price </p>
+                        <input type="text" id="min-price" placeholder="Min">
+                        <input type="text" id="max-price" placeholder="Max">
+                        <button>ok</button>
+                    </div>
+                    <div class="rating">
+                        <p>Rating </p>
+                        <button>1 star</button>
+                        <button>2 star</button>
+                        <button>3 star</button>
+                        <button>4 star</button>
+                        <button>5 star</button>
+                    </div>
+                    <div class="discount">
+                        <p>Deals & Discount</p>
+                        <button>Show Discount</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clothings-container">
+                <% for (let i = 0; i < Math.min(data.count, data.results); i++) { %>
+                    <div class="data-product-id" style="display:none"><%= data.rows[i].id %></div>
+                    <div class="clothings-content">
+                        <i class="fa fa-heart-o" id="remove-heart"></i>
+                        <i class="fa fa-heart" id="add-heart"></i>
+                        <img src=<%= data.rows[i].imagesource %> class="clothings-image" alt="adidas_shoes" onclick="previewItemBtnPressed('<%= data.rows[i].id %>')">
+                        <div class="clothing-product-content">
+                            <% for (let j = 0; j < data.rows[i].rating; j++) { %>
+                                <i class="fa fa-star"></i>
+                            <% } %>
+        
+                            <% if (data.rows[i].rating !== parseInt(data.rows[i].rating)) { %>
+                                <i class="fa fa-star-half-o"></i>
+                            <% } %>
+        
+                            <% for (let j = 0; j < (5 - data.rows[i].rating); j++) { %>
+                                <i class="fa fa-star-o"></i>
+                            <% } %>
+                
+                            <div class="clothing-item-details">
+                                <div class="left-hand">
+                                    <div class="product-name"><%= data.rows[i].name %></div>
+                                    <div class="product-price">$<%= data.rows[i].price %></div>
+                                </div>
+                                <i class="fa fa-shopping-cart clothing-overlay-cart" onclick="pressShoppingCart('<%= data.rows[i].id %>', '<%= data.rows[i].name %>', '<%= data.rows[i].price %>', '<%= data.rows[i].imagesource %>')"></i>
+                                <div class="clothing-quantity">
+                                    <i class="fa fa-minus-square clothing-minus-square"></i>
+                                    <div class="clothing-product-counter">0</div>
+                                    <i class="fa fa-plus-square clothing-plus-square"></i>
+                                </div>
+                            </div>
+                            <button class="preview-item-btn" onclick="previewItemBtnPressed('<%= data.rows[i].id %>')">Preview Item</button>
+                        </div>
+                    </div>
+        
+                <% } %>
+            
+            </div>
+
+        </div>
+
+        <div class="load-more">
+            Load More
+        </div>
+        <div class="loading-animation">
+            <div class="circle">
+
+            </div>
+            <div class="circle">
+                
+            </div>
+            <div class="circle">
+                
+            </div>
+            <div class="circle">
+                
+            </div>
+        </div>
+        
+        <%- include('bottom') -%>
+    </div>
+</body>
+</html>
