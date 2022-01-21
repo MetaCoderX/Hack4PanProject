@@ -17,6 +17,9 @@
         <link rel="stylesheet" href="css/topStyle.css">
         <link rel="stylesheet" href="css/bottomStyle.css">
         <link rel="stylesheet" href="css/side.css">
+        <link rel="stylesheet" href="css/shopping_list.css">
+        <!-- <link rel="stylesheet" href="css/saved.css"> -->
+        <link rel="stylesheet" href="css/please_login.css">
 
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
@@ -25,6 +28,10 @@
         <script src="js/top.js" defer></script>
         <script src="js/login.js" defer></script>
         <script src="js/side.js" defer></script>
+        <script src="js/shopping_list.js" defer></script>
+        <!-- <script src="js/saved.js" defer></script> -->
+        <script src="js/item_data.js" defer></script>
+        <script src="js/please_login.js" defer></script>
 
     </head>
 
@@ -33,7 +40,9 @@
 
             <%- include('top.ejs') %>
             <%- include('side.ejs') %>
+            <%- include('shopping_list.ejs') %>
             <%- include('login.ejs') %>
+            <%- include('please_login.ejs') %>
 
             <!--Main Content-->
             <div class="swiper mySwiper1">
@@ -446,8 +455,8 @@
                                     </div>
                                     <div class="product-function-container">
                                         <div class="product-function">
-                                            <button class="preview-item-btn data-preview-btn"> Preview </button>
-                                            <div class="product-id" style="display:none" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')"><%= data.newProducts[i].id %></div>
+                                            <button class="preview-item-btn data-preview-btn" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')"> Preview </button>
+                                            <div class="product-id" style="display:none"><%= data.newProducts[i].id %></div>
                                         </div>
                                         <div class="product-function">
                                             <button class="add-item-btn" onclick="pressShoppingCart('<%= data.newProducts[i].id %>', '<%= data.newProducts[i].name %>', '<%= data.newProducts[i].price %>', '<%= data.newProducts[i].imagesource %>')">Add Cart</button>
@@ -493,8 +502,8 @@
                                     </div>
                                     <div class="product-function-container">
                                         <div class="product-function">
-                                            <button class="preview-item-btn data-preview-btn">Preview</button>
-                                            <div class="product-id" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')" style="display:none"><%= data.newProducts[i].id %></div>
+                                            <button class="preview-item-btn data-preview-btn" onclick="previewBtnClicked('<%= data.newProducts[i].id %>')">Preview</button>
+                                            <div class="product-id" style="display:none"><%= data.newProducts[i].id %></div>
                                         </div>
                                         <div class="product-function">
                                             <button class="add-item-btn" onclick="pressShoppingCart('<%= data.newProducts[i].id %>', '<%= data.newProducts[i].name %>', '<%= data.newProducts[i].price %>', '<%= data.newProducts[i].imagesource %>')">Add Cart</button>
@@ -511,8 +520,212 @@
 
                 </div>
             </div>
-    
+            <div class="testimonial-container">
+                <div class="testimonial-header">
+                    <h3>What Our Customers Say</h3>
+                </div>
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-content" onmouseover="reviewScaleUp(0)" onmouseout="reviewScaleDown()">
+                        <i class='bx bxs-quote-alt-left'></i>
+                        <div class="testimonial-body-user-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="testimonial-body-header">
+                            <p>It's awesome</p>
+                            <div class="testimonial-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-body-content">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Impedit quia est ullam. Fugiat ea modi deleniti obcaecati
+                                distinctio quam animi blanditiis inventore esse, pariatur
+                                ad quisquam et.
+                            </p>
+                        </div>
+                        <p class="testimonial-author">John adams</p>
+                        <i class='bx bxs-quote-alt-right' ></i>
+
+                    </div>
+                    <div class="testimonial-content stand-out" onmouseover="reviewScaleUp(1)">
+                        <i class='bx bxs-quote-alt-left'></i>
+                        <div class="testimonial-body-user-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="testimonial-body-header">
+                            <p>It's awesome</p>
+                            <div class="testimonial-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-body-content">
+                            <p>
+                                Good Experience Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </p>
+                        </div>
+                        <p class="testimonial-author">John adams</p>
+                        <i class='bx bxs-quote-alt-right' ></i>
+
+                    </div>
+                    <div class="testimonial-content" onmouseover="reviewScaleUp(2)" onmouseout="reviewScaleDown()">
+                        <i class='bx bxs-quote-alt-left'></i>
+                        <div class="testimonial-body-user-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="testimonial-body-header">
+                            <p>It's awesome</p>
+                            <div class="testimonial-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-body-content">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Impedit quia est ullam. Fugiat ea modi deleniti obcaecati
+                                distinctio quam animi blanditiis inventore esse, pariatur
+                                ad quisquam.
+                            </p>
+                        </div>
+                        <p class="testimonial-author">John adams</p>
+                        <i class='bx bxs-quote-alt-right' ></i>
+                    </div>
+                </div>
+                <div class="expand-review">
+                    <!-- dropdown icon -->
+                    <i class='bx bx-chevron-down-circle' onclick="openReview()"></i>
+                </div>
+            </div>
+
+            <div class="review-container">
+                <div class="review-content">
+                    <h3>Rate your experience</h3>
+                   <div class="review-header">
+                       <div class="review-rating">
+                           <i class="fa fa-star-o" onclick="reviewRatingClicked(1)"></i>
+                           <i class="fa fa-star-o" onclick="reviewRatingClicked(2)"></i>
+                           <i class="fa fa-star-o" onclick="reviewRatingClicked(3)"></i>
+                           <i class="fa fa-star-o" onclick="reviewRatingClicked(4)"></i>
+                           <i class="fa fa-star-o" onclick="reviewRatingClicked(5)"></i>
+                        </div>
+                        <p></p>
+                   </div>
+                   <textarea rows="8" cols="40" placeholder="Want your review to be on the landing page? Tell everyone your experience!"></textarea>
+                   <button class="submit-review">Submit</button>
+                </div>
+            </div>
             <%- include('bottom'); -%>
         </div>
     </body>
 </html>
+
+<!-- comment with ejs -->
+<%/*
+
+            <div class="navigation-container">
+                <h3 class="navigation-title">Navigation</h3>
+                <div class="navigation-wrapper">
+                    <div class="navigation-content">
+                        <div class="navigation-header">
+                            <!-- show all icon -->
+                            <i class='bx bx-show-alt'></i>
+                            <p>Show All Products</p>
+                        </div>
+                        <div class="navigation-body">
+                            <p>
+                                Game relation warmly room earnestly use questions event figure
+                                eagerness stairs unaffected hung sorry property cousin.
+                                Passage talked estimating misery declared kindness use contrasted.
+                            </p>
+                        </div>
+                        <button class="navigation-btn" onclick="allProductsBtn()">Direct</button>
+                    </div>
+                    <div class="navigation-content">
+                        <div class="navigation-header">
+                            <!-- show all icon -->
+                            <i class="fa fa-thumbs-o-up"></i>
+                            <p>Best Sellers</p>
+                        </div>
+                        <div class="navigation-body">
+                            <p>
+                                Delivered father county shortly being sang attempted wholly besides behind branch good branched speaking unable.
+                                Offence request stronger weeks theirs up equal delighted become.
+                            </p>
+                        </div>
+                        <button class="navigation-btn" onclick="scrollBtn(0)">Direct</button>
+                    </div>
+                    <div class="navigation-content">
+                        <div class="navigation-header">
+                            <!-- show all icon -->
+                            <i class='bx bxs-party' ></i>
+                            <p>Top Rated</p>
+                        </div>
+                        <div class="navigation-body">
+                            <p>
+                                Visited admitting ham principle is outweigh.
+                                Steepest quiet abode home learning stand delay passage than detract.
+                                Opinion returned incommode excellent removed when is ever amiable precaution than daughter.
+                            </p>
+                        </div>
+                        <button class="navigation-btn" onclick="scrollBtn(1)">Direct</button>
+                    </div>
+                    <div class="navigation-content">
+                        <div class="navigation-header">
+                            <!-- show all icon -->
+                            <i class='bx bx-money-withdraw' ></i>
+                            <p>Top Deals</p>
+                        </div>
+                        <div class="navigation-body">
+                            <p>
+                                Terms assistance principles securing especially principles certain indulgence.
+                                Like limits position common case shyness pronounce request sons convinced ecstatic witty.
+                                Interested formerly to drew.
+                            </p>
+                        </div>
+                        <button class="navigation-btn" onclick="scrollBtn(2)">Direct</button>
+                    </div>
+                    <div class="navigation-content">
+                        <div class="navigation-header">
+                            <!-- show all icon -->
+                            <i class="fa fa-history"></i>
+                            <p>New Products</p>
+                        </div>
+                        <div class="navigation-body">
+                            <p>
+                                Discourse giving regular jennings might village resolving yourself good add stronger old cordially extent avoid passage.
+                                Months having produced looked ourselves opinion home scarcely none what beyond.
+                            </p>
+                        </div>
+                        <button class="navigation-btn" onclick="scrollBtn(3)">Direct</button>
+                    </div>
+                    <div class="navigation-content">
+                        <div class="navigation-header">
+                            <!-- show all icon -->
+                            <i class='bx bx-edit-alt' ></i>
+                            <p>Reviews</p>
+                        </div>
+                        <div class="navigation-body">
+                            <p>lorem ipsum dolor sit amumlorem ipsum dolor sit
+                                 amumlorem ipsum dolor sit amumlorem ipsum dolor sit amum
+                                 lorem ipsum dolor sit amumlorem ipsum dolor
+                            </p>
+                        </div>
+                        <button class="navigation-btn" onclick="reviewsBtn()">Direct</button>
+                    </div>
+                </div>
+
+            </div>
+
+*/%>
