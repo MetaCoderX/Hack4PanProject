@@ -9,14 +9,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-        
+
         <link rel="stylesheet" href="css/topStyle.css">
         <link rel="stylesheet" href="css/bottomStyle.css">
         <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/category.css">
         <link rel="stylesheet" href="css/side.css">
         <link rel="stylesheet" href="css/shopping_list.css">
-        <link rel="stylesheet" href="css/saved.css">
         <link rel="stylesheet" href="css/please_login.css">
 
         <script src="js/product.js" defer></script>
@@ -24,7 +23,6 @@
         <script src="js/login.js" defer></script>
         <script src="js/side.js" defer></script>
         <script src="js/shopping_list.js" defer></script>
-        <script src="js/saved.js" defer></script>
         <script src="js/please_login.js" defer></script>
 
     </head>
@@ -32,11 +30,10 @@
 <body>
     <div id="viewport-wrapper">
 
-        <%- include('top'); -%> 
-        <%- include('side.ejs'); -%> 
+        <%- include('top'); -%>
+        <%- include('side.ejs'); -%>
         <%- include('shopping_list.ejs') %>
-        <%- include('saved.ejs') %>
-        <%- include('login'); -%> 
+        <%- include('login'); -%>
         <%- include('please_login.ejs') %>
 
         <div id="page-name" style="display:none"><%= data.page_name %></div>
@@ -100,15 +97,15 @@
                             <% for (let j = 0; j < data.rows[i].rating; j++) { %>
                                 <i class="fa fa-star"></i>
                             <% } %>
-        
+
                             <% if (data.rows[i].rating !== parseInt(data.rows[i].rating)) { %>
                                 <i class="fa fa-star-half-o"></i>
                             <% } %>
-        
+
                             <% for (let j = 0; j < (5 - data.rows[i].rating); j++) { %>
                                 <i class="fa fa-star-o"></i>
                             <% } %>
-                
+
                             <div class="clothing-item-details">
                                 <div class="left-hand">
                                     <div class="product-name"><%= data.rows[i].name %></div>
@@ -124,9 +121,9 @@
                             <button class="preview-item-btn" onclick="previewItemBtnPressed('<%= data.rows[i].id %>')">Preview Item</button>
                         </div>
                     </div>
-        
+
                 <% } %>
-            
+
             </div>
 
         </div>
@@ -139,16 +136,16 @@
 
             </div>
             <div class="circle">
-                
+
             </div>
             <div class="circle">
-                
+
             </div>
             <div class="circle">
-                
+
             </div>
         </div>
-        
+
         <%- include('bottom') -%>
     </div>
 </body>
