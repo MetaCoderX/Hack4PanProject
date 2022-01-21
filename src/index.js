@@ -12,6 +12,7 @@ const app = express();
 const port = 3000;
 
 /* routes */
+const productRoutes = require('./routes/products');
 const pageRoutes = require('./routes/load_page');
 const userRoutes = require('./routes/user');
 const previewRoutes = require('./routes/preview');
@@ -41,6 +42,7 @@ app.use(cookieParser());
 // app.get('/', (req, res) => res.sendFile(path.join('views', 'index.ejs')));
 
 app.use(pageRoutes);
+app.use(productRoutes);
 app.use(userRoutes);
 app.use(previewRoutes);
 app.use(cookieRoutes);
