@@ -12,5 +12,5 @@ This is a full stack project that comprises a e-commerce website with a chat fun
 
 ### Run
 
-Clone this repository, change to the directory and run ```npm test```. Go to localhost:3000 and you should see the website.
+Clone this repository, change to the directory and run ```npm test``` after running ```npm i``` successfully. Go to localhost:3000 and you should see the website.
 * Alternatively, I can also generate a ngrok url.
