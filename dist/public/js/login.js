@@ -81,6 +81,8 @@ function loadCart(data) {
     if (data.length > 0) {
         document.querySelector('.cart-error-msg p').style.display = 'none';
     }
+
+    const shop_count = document.querySelector('.shop-count');
     for (let i = 0; i < data.length; i++) {
 
         const cart_script = `
@@ -108,5 +110,7 @@ function loadCart(data) {
         `
         shop_list_content.innerHTML += cart_script;
         totalSum.innerHTML = parseInt(totalSum.innerHTML) + parseInt(data[i].price * data[i].pquantity);
+        
+        shop_count.innerHTML = parseInt(shop_count.innerHTML) + parseInt(data[i].pquantity);
     }
 }

@@ -28,6 +28,11 @@ let loaded = false;
 let prev_date = "";
 let active_room = "";
 
+
+document.querySelector('.chat-header i').onclick = () => {
+    chat_wrapper.classList.toggle('open-chat');
+}
+
 function newMessageScroll() {
     chat_screen_panel.scrollTo({
         behavior: 'smooth',
@@ -69,17 +74,29 @@ function sendMessage(message) {
         }
         prev_date = cmp_date;
 
-
-
-        message_html = date_tag + `
-        <div class="chat-section">
-            <div class="chat-user">${message.name}</div>
-            <div class="chat-message-content">
-                ${message.content}
+        if (message.name !== user.is.alias) {
+            message_html = date_tag + `
+            <div class="chat-section">
+                <div class="chat-user-alt">${message.name}</div>
+                <div class="chat-message-content-alt">
+                    ${message.content}
+                </div>
+                <div class="chat-date-alt">${time}</div>
             </div>
-            <div class="chat-date">${time}</div>
-        </div>
-        `;
+            `;
+        } else {
+            message_html = date_tag + `
+            <div class="chat-section">
+                <div class="chat-user">${message.name}</div>
+                <div class="chat-message-content">
+                    ${message.content}
+                </div>
+                <div class="chat-date">${time}</div>
+            </div>
+            `;
+
+        }
+
     }
     chat_screen_panel.innerHTML += message_html;
     newMessageScroll();
@@ -142,6 +159,9 @@ form[0].addEventListener('submit', (e) => {
                     sign_out_icon.style.display = 'block';
                     sign_out_text.style.display = 'block';
                     document.getElementById('viewport-wrapper').style.overflowY = 'scroll';
+
+                    openNarrowMenu();
+                    openMenu();
                 }, 3000);
             } else error_msg[0].style.color = 'red'
         })

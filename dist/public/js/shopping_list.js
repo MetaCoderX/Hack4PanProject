@@ -84,6 +84,12 @@ function confirmPurchase() {
 function addToShopList(product_data, totalSum) {
     const shop_list_content = document.getElementsByClassName('shop-list-content')[0];
 
+    const shop_cart = document.querySelector('.nav-logo .fa-shopping-cart');
+    shop_cart.classList.toggle('add-to-cart-animation');
+
+    const shop_count = document.querySelector('.shop-count');
+    shop_count.innerHTML = parseInt(shop_count.innerHTML) + 1;
+
     totalSum.innerHTML = parseInt(totalSum.innerHTML) + parseInt(product_data.price);
     document.querySelector('.cart-error-msg p').style.display = 'none';
     console.log("Shop LIst Content: " + shop_list_content);
@@ -112,6 +118,9 @@ function addToShopList(product_data, totalSum) {
         </div>
     `
     shop_list_content.innerHTML += cart_script;
+    setTimeout(() => {
+        shop_cart.classList.toggle('add-to-cart-animation');
+    }, 2000)
 }
 
 function checkItemExist(id) {
@@ -163,6 +172,12 @@ function addItemToCart(product_data) {
         console.log("Exists");
         if (exists != -1) {
             console.log("HERE");
+
+            const shop_cart = document.querySelector('.nav-logo .fa-shopping-cart');
+            shop_cart.classList.toggle('add-to-cart-animation');
+
+            const shop_count = document.querySelector('.shop-count');
+            shop_count.innerHTML = parseInt(shop_count.innerHTML) + 1;
             const shop_item_quantity = document.querySelectorAll('.shop-item-quantity-input input');
             // console.log(shop_item_quantity.length);
             // console.log(shop_item_quantity[exists].value);
@@ -173,6 +188,10 @@ function addItemToCart(product_data) {
             subTotal[exists].innerHTML = parseInt(subTotal[exists].innerHTML) + parseInt(product_data.price);
             totalSum.innerHTML = parseInt(totalSum.innerHTML) + parseInt(product_data.price);
             // console.log(shop_item_quantity[exists].value);
+
+            setTimeout(() => {
+                shop_cart.classList.toggle('add-to-cart-animation');
+            }, 2000)
         } else {
             addToShopList(product_data, totalSum);
         }

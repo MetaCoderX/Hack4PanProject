@@ -72,9 +72,50 @@ a {
     transform: translateX(-10px); 
 }
 
+.shop-count {
+    position: absolute;
+    top: 23px;
+    transform: translateX(13px);
+    color: rgba(149, 0, 255, 0.8);
+}
+
+
 .nav-logo > .fa-shopping-cart {
     position: relative;
 }
+
+/* .nav-logo > .fa-shopping-cart:hover {
+    animation: go-to-cart 1s ease-in-out;    
+} */
+
+
+.add-to-cart-animation {
+    animation: go-to-cart 2s ease-in-out;    
+}
+
+
+@keyframes go-to-cart {
+    /* make item fly to .nav-logo > .fa-shopping-cart */
+    0% {
+        transform: translateX(40px);
+    }
+
+    60% {
+        transform: translateX(-15px); 
+    }
+
+    70% {
+        transform: translateX(-25px);
+        transform:  rotate(-50deg);
+    }
+    
+    100% {
+        /* transform:  rotate(50deg); */
+        /* transform: translateX(25px); */
+    }
+}
+
+
 
 .shop-text {
     position: absolute;

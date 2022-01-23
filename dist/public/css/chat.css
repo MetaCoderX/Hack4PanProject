@@ -2,9 +2,9 @@
     position: fixed;
     font-size: 2em;
     bottom: 20px;
-    right: 50px;
-    z-index: 1000;
-
+    right: 70px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     padding: 10px;
     color: rgba(0, 0, 0, 0.8);
@@ -81,6 +81,15 @@
     text-align: center;
 }
 
+.chat-header > i {
+    position: absolute;
+    top:  10px;
+    right: 10px;
+    font-size: 1.7em;
+    cursor: pointer;
+    display: none;
+}
+
 .chat-header > h3 {
     transform: translateY(13px);
 }
@@ -106,8 +115,12 @@
         bottom: 0;
     }
 
-    #chat-wrapper {
+    .chat-wrapper {
         right: 5px;
+    }
+
+    .chat-header > i {
+        display: block;
     }
 }
 
@@ -192,18 +205,22 @@
     font-size: 1.3em;
 }
 
-.chat-user {
-    /* padding: 8px; */
-    /* text-align: center; */
-    text-align: right;
-    /* flex-basis: 10%; */
+.chat-user, .chat-user-alt {
     word-wrap: break-word;
     margin-bottom: 2px;
     margin-right: 2px;
     font-size: 0.9em;
 }
 
-.chat-message-content {
+.chat-user {
+    text-align: right;
+}
+
+.chat-user-alt {
+    text-align: left;
+}
+
+.chat-message-content, .chat-message-content-alt {
     /* flex-basis: 50%; */
     word-wrap: break-word;
     background: rgba(255, 255, 255, 1);
@@ -215,28 +232,52 @@
 	border: none;
     position: relative;
     width: 85%;
-    margin-left: auto;
     margin-top: 20px;
     font-size: 1em;
 }
 
-.chat-message-content::after {
+.chat-message-content {
+    margin-left: auto;
+}
+
+.chat-message-content-alt {
+    margin-right: auto;
+}
+
+.chat-message-content::after, .chat-message-content-alt::after {
     /* triangle */
     content: "";
     position: absolute;
-    top: -15px;
-    right: 25px;
     width: 0;
     height: 0;
+    top: -15px;
+    border-bottom: 15px solid rgba(220, 220, 220, 0.5);
+}
+
+.chat-message-content::after {
+    right: 25px;
     border-left: 15px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 15px solid rgba(220, 220, 220, 0.5);
+}
+
+.chat-message-content-alt::after {
+    left: 25px;
+    border-right: 15px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.chat-date, .chat-date-alt {
+    font-size:0.8em;
+    margin-top:  5px;
+    margin-bottom:  20px;
 }
 
 .chat-date {
     text-align: right;
-    font-size:0.8em;
-    margin-top:  5px;
+}
+
+.chat-date-alt {
+    text-align: left;
 }
 
 .chat-message-box {
