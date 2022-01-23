@@ -18,8 +18,8 @@
         <link rel="stylesheet" href="css/bottomStyle.css">
         <link rel="stylesheet" href="css/side.css">
         <link rel="stylesheet" href="css/shopping_list.css">
-        <!-- <link rel="stylesheet" href="css/saved.css"> -->
         <link rel="stylesheet" href="css/please_login.css">
+        <link rel="stylesheet" href="css/chat.css">
 
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
@@ -29,9 +29,9 @@
         <script src="js/login.js" defer></script>
         <script src="js/side.js" defer></script>
         <script src="js/shopping_list.js" defer></script>
-        <!-- <script src="js/saved.js" defer></script> -->
         <script src="js/item_data.js" defer></script>
         <script src="js/please_login.js" defer></script>
+        <script type="module" src="js/chat.js" defer></script>
 
     </head>
 
@@ -520,6 +520,7 @@
 
                 </div>
             </div>
+
             <div class="testimonial-container">
                 <div class="testimonial-header">
                     <h3>What Our Customers Say</h3>
@@ -609,6 +610,8 @@
                 </div>
             </div>
 
+
+
             <div class="review-container">
                 <div class="review-content">
                     <h3>Rate your experience</h3>
@@ -626,7 +629,9 @@
                    <button class="submit-review">Submit</button>
                 </div>
             </div>
-            <%- include('bottom'); -%>
+
+            <%- include('chat'); %>
+            <%- include('bottom'); %>
         </div>
     </body>
 </html>
@@ -634,98 +639,5 @@
 <!-- comment with ejs -->
 <%/*
 
-            <div class="navigation-container">
-                <h3 class="navigation-title">Navigation</h3>
-                <div class="navigation-wrapper">
-                    <div class="navigation-content">
-                        <div class="navigation-header">
-                            <!-- show all icon -->
-                            <i class='bx bx-show-alt'></i>
-                            <p>Show All Products</p>
-                        </div>
-                        <div class="navigation-body">
-                            <p>
-                                Game relation warmly room earnestly use questions event figure
-                                eagerness stairs unaffected hung sorry property cousin.
-                                Passage talked estimating misery declared kindness use contrasted.
-                            </p>
-                        </div>
-                        <button class="navigation-btn" onclick="allProductsBtn()">Direct</button>
-                    </div>
-                    <div class="navigation-content">
-                        <div class="navigation-header">
-                            <!-- show all icon -->
-                            <i class="fa fa-thumbs-o-up"></i>
-                            <p>Best Sellers</p>
-                        </div>
-                        <div class="navigation-body">
-                            <p>
-                                Delivered father county shortly being sang attempted wholly besides behind branch good branched speaking unable.
-                                Offence request stronger weeks theirs up equal delighted become.
-                            </p>
-                        </div>
-                        <button class="navigation-btn" onclick="scrollBtn(0)">Direct</button>
-                    </div>
-                    <div class="navigation-content">
-                        <div class="navigation-header">
-                            <!-- show all icon -->
-                            <i class='bx bxs-party' ></i>
-                            <p>Top Rated</p>
-                        </div>
-                        <div class="navigation-body">
-                            <p>
-                                Visited admitting ham principle is outweigh.
-                                Steepest quiet abode home learning stand delay passage than detract.
-                                Opinion returned incommode excellent removed when is ever amiable precaution than daughter.
-                            </p>
-                        </div>
-                        <button class="navigation-btn" onclick="scrollBtn(1)">Direct</button>
-                    </div>
-                    <div class="navigation-content">
-                        <div class="navigation-header">
-                            <!-- show all icon -->
-                            <i class='bx bx-money-withdraw' ></i>
-                            <p>Top Deals</p>
-                        </div>
-                        <div class="navigation-body">
-                            <p>
-                                Terms assistance principles securing especially principles certain indulgence.
-                                Like limits position common case shyness pronounce request sons convinced ecstatic witty.
-                                Interested formerly to drew.
-                            </p>
-                        </div>
-                        <button class="navigation-btn" onclick="scrollBtn(2)">Direct</button>
-                    </div>
-                    <div class="navigation-content">
-                        <div class="navigation-header">
-                            <!-- show all icon -->
-                            <i class="fa fa-history"></i>
-                            <p>New Products</p>
-                        </div>
-                        <div class="navigation-body">
-                            <p>
-                                Discourse giving regular jennings might village resolving yourself good add stronger old cordially extent avoid passage.
-                                Months having produced looked ourselves opinion home scarcely none what beyond.
-                            </p>
-                        </div>
-                        <button class="navigation-btn" onclick="scrollBtn(3)">Direct</button>
-                    </div>
-                    <div class="navigation-content">
-                        <div class="navigation-header">
-                            <!-- show all icon -->
-                            <i class='bx bx-edit-alt' ></i>
-                            <p>Reviews</p>
-                        </div>
-                        <div class="navigation-body">
-                            <p>lorem ipsum dolor sit amumlorem ipsum dolor sit
-                                 amumlorem ipsum dolor sit amumlorem ipsum dolor sit amum
-                                 lorem ipsum dolor sit amumlorem ipsum dolor
-                            </p>
-                        </div>
-                        <button class="navigation-btn" onclick="reviewsBtn()">Direct</button>
-                    </div>
-                </div>
-
-            </div>
 
 */%>

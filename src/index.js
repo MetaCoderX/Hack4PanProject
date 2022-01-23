@@ -4,12 +4,16 @@ const {Client} = require('pg');
 // const serverless = require('serverless-http');
 const cookieParser = require('cookie-parser');
 const ejs = require('ejs')
+const Gun = require('gun');
+const Sea = require('gun/sea');
 
 const app = express();
 // const body_parser = require('body-parser');
 // const json_parser = body_parser.json();
 
 const port = 3000;
+
+app.use(Gun.serve);
 
 /* routes */
 const productRoutes = require('./routes/products');
@@ -32,7 +36,7 @@ app.engine('ejs', require('ejs').__express); //<-- this
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // app.use(json_parser);
@@ -51,4 +55,5 @@ app.get('/favicon.ico' , function(req , res){/*code*/});
 
 // module.exports = app;
 // module.exports.handler = serverless(app);
-app.listen(process.env.PORT || port, () => console.log(`Ecommerce App listening on port ${port}!`));
+const server = app.listen(process.env.PORT || port, () => console.log(`Ecommerce App listening on port ${port}!`));
+Gun({web: server});

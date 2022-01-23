@@ -4,7 +4,7 @@ const crypto = require('crypto');
 
 exports.userLogin = (req, res, next) => {
     const revisit = req.body.revisit;
-    let data = {'name': "", 'pwd': "", 'status': true, 'message': 'Login Successfully', 'product_msg': 'none', 'cart': {}};
+    let data = {'name': "", 'pwd': "", 'status': true, 'message': 'Login Successfully', 'product_msg': 'none', 'cart': {}, 'session_id': ""};
     if (revisit ===  false) {
         const name = req.body.uname.toLowerCase();
         const pwd = req.body.pwd;
@@ -99,6 +99,7 @@ exports.userLogin = (req, res, next) => {
                             data['id'] = results.rows[0].id;
 
                             res.cookie('meta_id', results.rows[0].session_id);
+                            data.session_id = results.rows[0].session_id;
 
                             // load cart data if any
                             console.log("Get order ID query");
@@ -157,7 +158,7 @@ exports.userLogin = (req, res, next) => {
 exports.userSignup = (req, res, next) => {
     const name = req.body.uname.toLowerCase();
     const pwd = req.body.pwd;
-    const data = {'name': name, 'pwd': pwd, 'status': true, 'message': 'Signup Successfully'};
+    const data = {'name': name, 'pwd': pwd, 'status': true, 'message': 'Signup Successfully', 'session_id': ''};
 
     // encrypt pwd with bcrypt
     const saltRounds = 10;
@@ -179,6 +180,7 @@ exports.userSignup = (req, res, next) => {
                 client.query(query2, [name, hashed, session_id])
                 .then(results => {
                     console.log(results.rows[0]); // insert successfully or not
+                    data.session_id = session_id;
                     console.log("Backend signup data: " + data);
                     res.setHeader('Content-Type', 'application/json');
                     res.json(data);

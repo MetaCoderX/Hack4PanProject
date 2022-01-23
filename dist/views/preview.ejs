@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="css/please_login.css">
 
         <link rel="stylesheet" href="css/preview.css">
+        <link rel="stylesheet" href="css/chat.css">
+
 
         <script src="js/top.js" defer></script>
         <script src="js/login.js" defer></script>
@@ -26,6 +28,8 @@
         <script src="js/shopping_list.js" defer></script>
         <script src="js/item_data.js" defer></script>
         <script src="js/please_login.js" defer></script>
+
+        <script type="module" src="js/chat.js" defer></script>
 
 
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -162,7 +166,7 @@
                     </div>
                 </div>
             </div>
-
+            <%- include('chat'); %>
             <%- include('bottom.ejs') %>
         </div>
     </body>

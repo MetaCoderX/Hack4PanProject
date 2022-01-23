@@ -23,6 +23,7 @@ sign_up.addEventListener('click', () => {
     form[0].style.animation = 'login_fade_out 1.5s ease-in-out';
     form[1].style.animation = 'login_form_animation 1.5s ease-in-out';
     form[1].style.display = 'block';
+
     // if (checkbox.checked) {
     //     let uname = document.getElementById('uname').value;
     //     let pwd = document.getElementById('pwd').value;
@@ -30,190 +31,82 @@ sign_up.addEventListener('click', () => {
     setTimeout(() => {
         form[0].style.display = 'none';
     }, 1000);
+    error_msg[0].innerHTML = '';
+    document.getElementById('uname').value = '';
+    document.getElementById('pwd').value = '';
+
 })
 
-login_instead_btn.addEventListener('click', () => {
+function changeToLoginPage() {
+    document.getElementById('signup-uname').value = '';
+    document.getElementById('signup-pwd').value = '';
+    document.getElementById('confirm-pwd').value = '';
     form[0].style.display = 'block';
     form[0].style.animation = 'login_form_animation 1.5s ease-in-out';
     form[1].style.animation = 'login_fade_out 1.5s ease-in-out';
     setTimeout(() => {
         form[1].style.display = 'none';
     }, 1000);
+}
+
+login_instead_btn.addEventListener('click', () => {
+    changeToLoginPage();
 })
 
 for (let i = 0; i < cancelbtn.length; i++) {
     cancelbtn[i].addEventListener('click', () => {
+        document.getElementById('signup-uname').value = '';
+        document.getElementById('signup-pwd').value = '';
+        document.getElementById('confirm-pwd').value = '';
+        document.getElementById('uname').value = '';
+        document.getElementById('pwd').value = '';
+        error_msg[i].innerHTML = '';
         form[0].style.display = 'block';
         form[0].style.animation = 'login_form_animation 1.5s ease-in-out';
         form[1].style.animation = 'login_fade_out 1.5s ease-in-out';
         form[1].style.display = 'none';
         login_modal.style.display = 'none';
-        document.getElementsByTagName('html')[0].style.overflow = 'scroll';
+        document.getElementById('viewport-wrapper').style.overflowY = 'scroll';
     })
 }
 
-// loadCart(data)
+function loadCart(data) {
 
+    const shop_list_content = document.getElementsByClassName('shop-list-content')[0];
+    console.log("Shop List Content: " + shop_list_content);
 
-function userLogin(userData) {
+    const totalSum = document.querySelector('.checkout p span');
+    console.log(totalSum);
 
-    const cookieOptions = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        status: 200
+    if (data.length > 0) {
+        document.querySelector('.cart-error-msg p').style.display = 'none';
     }
-    fetch("/cookie/get", cookieOptions)
-        .then(response => {
-            return response.json();
-        })
-        .then(results => {
-            console.log(results);
-            if (results.meta_id !== null) {
+    for (let i = 0; i < data.length; i++) {
 
-                // document.getElementsByTagName('html')[0].style.overflow = 'scroll';
-                sign_in_icon.style.display = 'none';
-                sign_in_text.style.display = 'none';
-                sign_out_icon.style.display = 'block';
-                sign_out_text.style.display = 'block';
-
-                console.log("Cookie Found");
-                userData.session_id = results.meta_id;
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(userData),
-                    status: 200
-                }
-                fetch('/login', options)
-                    .then(response =>  {
-                        console.log('Login response back from server');
-                        return response.json();
-                    })
-                    .then(results => {
-                        const result = results;
-                        // change account-info name
-                        account_info.innerHTML = `<span>Welcome, ${result.name}</span>`;
-                    })
-                    .catch(err => {
-                        console.log("Login response: " + err);
-                    })
-            }
-        })
-        .catch(err => {console.log(err)})
-
+        const cart_script = `
+            <div class="shop-item">
+                <div class="shop-item-product">
+                    <img src="${data[i].imagesource}" alt="">
+                    <p class="shop-item-name">${data[i].name}</p>
+                </div>
+                <div class="shop-item-quantity">
+                    <div class="shop-item-quantity-input">
+                        <input type="text" value="${data[i].pquantity}" required>
+                        <button class="update-btn">Update</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div class="shop-item-price">
+                    ${data[i].price}
+                </div>
+                <div class="shop-item-sub-total">
+                    ${data[i].price * data[i].pquantity}
+                </div>
+                <!-- <button class="shop-item-remove-btn">Remove</button> -->
+                <div class="shop-item-id" style="display:none">${data[i].id}</div>
+            </div>
+        `
+        shop_list_content.innerHTML += cart_script;
+        totalSum.innerHTML = parseInt(totalSum.innerHTML) + parseInt(data[i].price * data[i].pquantity);
+    }
 }
-
-form[0].addEventListener('submit', (e) => {
-    e.preventDefault();
-    // get uname and pwd from input
-    let uname = document.getElementById('uname').value;
-    let pwd = document.getElementById('pwd').value;
-    console.log("Client side form data: " + uname + " " + pwd);
-
-    const data = {'uname' : uname, 'pwd' : pwd, 'revisit': false};
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-        status: 200
-    }
-    fetch('/login', options)
-        .then(response =>  {
-            console.log('Login response back from server');
-            return response.json();
-        })
-        .then(results => {
-            const result = results;
-
-            console.log(result);
-
-            error_msg[0].innerHTML = result.message;
-            if (result.status === true) {
-                error_msg[0].style.color = 'green';
-                spinner[0].style.display = 'block';
-
-                // load cart if any
-                if (result.cart.length > 0) {
-                    console.log("Load Cart: "+ result.cart)
-                    loadCart(result.cart);
-                }
-
-                setTimeout(() => {
-                    // change account-info name
-                    account_info.innerHTML = `<span>Welcome, ${uname}</span>`;
-                    login_modal.style.display = 'none';
-                    spinner[0].style.display = 'none';
-                    document.getElementsByTagName('html')[0].style.overflow = 'scroll';
-                    sign_in_icon.style.display = 'none';
-                    sign_in_text.style.display = 'none';
-                    sign_out_icon.style.display = 'block';
-                    sign_out_text.style.display = 'block';
-                }, 3000);
-            } else error_msg[0].style.color = 'red'
-        })
-        .catch(err => {
-            console.log("Login response: " + err);
-        })
-});
-
-form[1].addEventListener('submit', (e) => {
-    e.preventDefault();
-    // get uname and pwd from input
-    let uname = document.getElementById('signup-uname').value;
-    let pwd = document.getElementById('signup-pwd').value;
-    let confirm_pwd = document.getElementById('confirm-pwd').value;
-    console.log("Client side form data: " + uname + " " + pwd + " " + confirm_pwd);
-
-    if (pwd === confirm_pwd && pwd.length > 8) {
-
-        const data = {'uname' : uname, 'pwd' : pwd};
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-            status: 200
-        }
-        fetch('/signup', options)
-            .then(response =>  {
-                console.log('Signup response back from server');
-                return response.json();
-            })
-            .then(results => {
-                const result = results;
-                console.log("Client side result: " + result);
-                error_msg[1].innerHTML = result.message;
-                if (result.status === true) {
-                    error_msg[1].style.color = 'green';
-                    spinner[1].style.display = 'block';
-                    setTimeout(() => {
-                        login_modal.style.display = 'none';
-                        spinner[1].style.display = 'none';
-                        document.getElementsByTagName('html')[0].style.overflow = 'scroll';
-                        sign_in_icon.style.display = 'none';
-                        sign_in_text.style.display = 'none';
-                        sign_out_icon.style.display = 'block';
-                        sign_out_text.style.display = 'block';
-                    }, 3000);
-                } else error_msg[1].style.color = 'red'
-            })
-            .catch(err => {
-                console.log("Login response: " + err);
-            })
-    } else {
-        error_msg[1].style.color = 'red';
-        if (pwd.length < 9) {
-            error_msg[1].innerHTML = "Password must be at least 9 characters long";
-        } else {
-            error_msg[1].innerHTML = "Passwords do not match";
-        }
-    }
-
-});

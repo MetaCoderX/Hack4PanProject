@@ -45,12 +45,12 @@ function checkout() {
                 feedback_msg.style.display = 'none';
                 shop_list_container.style.display = 'none';
                 confirm_checkout_container.style.display = 'none';
-                confirm_checkout_loader.style.display = 'none'; 
+                confirm_checkout_loader.style.display = 'none';
                 confirm_checkout_btn.style.display = 'block';
                 document.getElementById('viewport-wrapper').style.overflowY = 'scroll';
             }, 3000);
         }
-        
+
         console.log(data);
     })
     .catch(err => {
@@ -72,7 +72,7 @@ function closeShopList() {
         shop_list_container.style.display = 'none';
         shop_list_wrapper.style.animation = 'card-slide-in 0.5s linear';
         document.getElementById('viewport-wrapper').style.overflowY = 'scroll';
-    }, 500);        
+    }, 500);
 }
 
 let confirm_btn_pressed = false;
@@ -122,7 +122,7 @@ function checkItemExist(id) {
             return i;
         }
     }
-    
+
     return -1;
 }
 function addItemToCart(product_data) {
@@ -150,7 +150,8 @@ function addItemToCart(product_data) {
             // window.location.href = '/login';
         } else {
             console.log("Ready to fetch /category/add-to-cart");
-            return fetch('/category/add-to-cart/' + product_data.id + '?meta_id=' + data.meta_id);
+            console.log(data.meta_id);
+            return fetch('/category/add-to-cart/' + product_data.id + '?meta_id=' + encodeURIComponent(data.meta_id));
         }
     })
     .then(response => response.json())
@@ -176,7 +177,7 @@ function addItemToCart(product_data) {
             addToShopList(product_data, totalSum);
         }
     })
-    .catch(error => console.error(error));    
+    .catch(error => console.error(error));
 }
 
 
@@ -188,7 +189,7 @@ function pressShoppingCart(id, name, price, image) {
     //  let product_name = document.getElementsByClassName('product-name')[i];
     //  let product_price = document.getElementsByClassName('product-price')[i];
     //  let product_image = document.querySelectorAll('.product-item-container img')[i];
-    product_data['name'] = name; 
+    product_data['name'] = name;
     product_data['price'] = price;
     product_data['image'] = image;
     product_data['id'] = id;
